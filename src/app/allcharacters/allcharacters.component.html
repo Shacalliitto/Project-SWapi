@@ -1,14 +1,16 @@
-<div class="title">
-    <h1>STARSWIKI</h1>
-</div>
-<div class="search">
-    <input type="text" placeholder="Search for Character">
-</div>
-<div class="menu">
-    <div class="random">
-        <a routerLink='/random'><h3>Random Character</h3></a>
-    </div>
-    <div class="all">
-        <a routerLink='/allcharacters'><h3>All Characters</h3></a>
+<app-nav></app-nav>
+<div id='ngFor'>
+    <div *ngFor="let item of CharacterData">
+        <div class="card">
+            <div>
+                Nome: {{item.name}}
+            </div>
+            <div>
+                Altura: {{item.height+"cm"}}
+            </div>
+            <div>
+                Genero: {{item.gender}}
+            </div>
+        </div>
     </div>
 </div>

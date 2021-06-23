@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApirequestService } from '../apirequest.service';
 
 @Component({
   selector: 'app-allcharacters',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./allcharacters.component.sass']
 })
 export class AllcharactersComponent implements OnInit {
+  
+  CharacterData:any;
 
-  constructor() { }
+  constructor(private CharacterApi:ApirequestService) { }
 
   ngOnInit(): void {
+    this.CharacterApi.getSWC().subscribe((response:any) => {
+      this.CharacterData=response.results
+      console.log(this.CharacterData)
+    })
   }
 
 }
